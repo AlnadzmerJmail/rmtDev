@@ -1,0 +1,31 @@
+{
+	"name": "rmtdev",
+	"version": "1.0.0",
+	"description": "a platform that developers can use to find remote jobs.",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"browserslist": [
+		">0.2%"
+	],
+	"author": "Alnadzmer Jamil",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.23.2",
+		"@babel/preset-env": "^7.23.2",
+		"autoprefixer": "^10.4.16",
+		"babel-loader": "^9.1.3",
+		"core-js": "^3.33.1",
+		"cssnano": "^6.0.1",
+		"postcss-loader": "^7.3.3",
+		"postcss-pxtorem": "^6.0.0",
+		"webpack": "^5.89.0",
+		"webpack-cli": "^5.1.4"
+	},
+	"dependencies": {
+		"css-loader": "^6.8.1",
+		"mini-css-extract-plugin": "^2.7.6"
+	}
+}
