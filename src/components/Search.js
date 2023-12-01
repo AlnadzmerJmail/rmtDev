@@ -17,11 +17,11 @@ const submitHandler = async (e) => {
 	const searchText = searchInputEl.value;
 
 	// validation with regex
-	const forbiddenPattern = /python/;
+	const forbiddenPattern = /[^a-zA-Z" "]/;
 	const patternMatch = forbiddenPattern.test(searchText);
 
 	if (patternMatch) {
-		const errMessage = 'Your search may not contain Python';
+		const errMessage = 'Search value contains non-letter character.';
 		return renderError(errMessage);
 	}
 
@@ -34,7 +34,7 @@ const submitHandler = async (e) => {
 
 	try {
 		const { jobItems = [] } = await getData(
-			`${BASE_URL}/jobs?search=${searchText}`
+			`${BASE_URL}/jobs?search=${searchText || 'JavaScript'}`
 		);
 		// assigning to state
 		state.jobItems = jobItems;
@@ -43,8 +43,9 @@ const submitHandler = async (e) => {
 		renderJobItem();
 	} catch (err) {
 		return renderError(err.message || UNKNOWN_ERROR);
+	} finally {
+		renderSpinner('search');
 	}
-
-	renderSpinner('search');
 };
 searchFormEl.addEventListener('submit', submitHandler);
+window.addEventListener('DOMContentLoaded', submitHandler); // didMount

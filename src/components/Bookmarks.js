@@ -24,8 +24,6 @@ const clickHandler = (e) => {
 		.querySelector(`.${iconClassName}`)
 		.classList.toggle(`${iconClassName}--bookmarked`);
 
-	console.log('STATE-->>', state);
-
 	// render to search list -- to update the bookmark icon
 	renderJobItem();
 };

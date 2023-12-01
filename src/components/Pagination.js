@@ -14,11 +14,9 @@ const hiddenClassName = 'pagination__button--hidden';
 const clickHandler = (e) => {
 	const paginateBtnEl = e.target.closest('.pagination__button');
 
-	console.log(paginateBtnEl);
+	let { currentPage, perPage, jobItems } = state;
 
 	if (!paginateBtnEl) return;
-
-	let { currentPage, perPage, jobItems } = state;
 
 	if (paginateBtnEl.className.includes('--next')) {
 		currentPage += 1;

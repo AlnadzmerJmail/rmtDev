@@ -43,8 +43,6 @@ const clickHandler = async (e) => {
 
 	history.pushState(null, '', `${pathname}/#${jobId}`);
 
-	// console.log(location);
-
 	try {
 		const { jobItem } = await getData(`${BASE_URL}/jobs/${jobId}`);
 
